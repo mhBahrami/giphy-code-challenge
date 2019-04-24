@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Giphy Search</string>
+    <string name="search">Search</string>
+    <string name="search_hint">Search All the GIFs</string>
+    <string name="no_result" >There is no gif for this query.\n Please try something else!</string>
+    <string name="search_empty" >GIFs will be displayed here!</string>
+    <string name="search_action">This is a new search action</string>
+</resources>

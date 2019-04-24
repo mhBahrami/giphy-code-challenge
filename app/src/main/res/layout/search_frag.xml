@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View" />
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+                name="viewmodel"
+                type="com.giphy.codechallenge.search.SearchViewModel"/>
+    </data>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true">
+
+        <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="160dp"
+                android:layout_centerHorizontal="true"
+                android:visibility="@{safeUnbox(viewmodel.dataLoading) ? View.VISIBLE : View.GONE}"/>
+
+
+        <LinearLayout
+                android:id="@+id/searchBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <EditText
+                    android:id="@+id/searchQuery"
+                    android:text="@={viewmodel.query}"
+                    android:hint="@string/search_hint"
+                    android:textAlignment="textStart"
+                    android:layout_gravity="start"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+
+            <Button
+                    android:id="@+id/searchGif"
+                    android:text="@string/search"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:enabled="@{safeUnbox(viewmodel.searchButtonEnable)}"/>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/results"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/searchBar"
+                android:layout_marginTop="0dp"
+                android:adapter="@{viewmodel.listAdapter}"
+                android:visibility="@{safeUnbox(viewmodel.empty) ? View.GONE : View.VISIBLE}"
+                tools:listitem="@layout/list_item"/>
+
+        <LinearLayout
+                android:id="@+id/noResults"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:visibility="@{safeUnbox(viewmodel.empty) ? View.VISIBLE : View.GONE}">
+
+            <ImageView
+                    android:id="@+id/noResultIcon"
+                    android:alpha="0.8"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:src="@{ContextCompat.getDrawable(context, safeUnbox(viewmodel.noResultIconRes))}" />
+
+            <TextView
+                    android:id="@+id/noResultLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@{context.getString(safeUnbox(viewmodel.noResultLabelRes))}"
+                    android:layout_marginBottom="@dimen/list_item_padding"/>
+
+            <!--<TextView-->
+            <!--android:id="@+id/noTasksAdd"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="48dp"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:background="@drawable/touch_feedback"-->
+            <!--android:gravity="center"-->
+            <!--android:text="@string/no_tasks_add"-->
+            <!--android:onClick="@{() -> viewmodel.addNewTask()}"-->
+            <!--android:visibility="@{viewmodel.tasksAddViewVisible ? View.VISIBLE : View.GONE}" />-->
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

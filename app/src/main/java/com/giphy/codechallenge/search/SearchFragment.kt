@@ -45,7 +45,6 @@ class SearchFragment : Fragment() {
         setupSearchGifButton()
         setupSearchQueryEditText()
         setupListView()
-        //setupRefreshLayout()
     }
 
     private fun setupSearchGifButton() {

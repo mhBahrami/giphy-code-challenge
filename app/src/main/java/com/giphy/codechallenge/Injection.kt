@@ -9,7 +9,10 @@ object Injection {
 
     fun provideGifsRepository(): GifsRepository {
         return GifsRepository.getInstance(
-            // Later we can add a new data source for database.
+            /* Later we can add a new data source for device storage data source.
+             *
+             * GifsLocalDataSource.getInstance()),
+             * */
             GifsRemoteDataSource.getInstance(AppExecutors(), provideGiphyApiService()))
     }
 

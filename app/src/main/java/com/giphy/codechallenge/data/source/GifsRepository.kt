@@ -2,8 +2,8 @@ package com.giphy.codechallenge.data.source
 
 class GifsRepository(
     /* Later we can add a new data source for device storage data source.
-
-     private val gifsLocalDataSource: LocalDataSource
+     *
+     *  private val gifsLocalDataSource: LocalDataSource
      */
     private val gifsRemoteDataSource: GifsDataSource
 ) : GifsDataSource {

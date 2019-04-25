@@ -28,7 +28,7 @@ If there is an issue with network/server (like server does not respond, or netwo
 | ![alt text][image2] | ![alt text][image3]      |       ![alt text][image4]     |
 
 
-## System Configuration
+## System configuration
 
 I used **Android Studio 3.4** and **Gradle 5.1.1**. The project is fully written in **Kotlin**.
 

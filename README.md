@@ -12,7 +12,7 @@
 
 This prototype app uses some Architecture Components like ViewModel, LiveData, and other lifecycle-aware classes. Also, it uses the [Data Binding Library](http://developer.android.com/tools/data-binding/guide.html#data_objects) to display data and bind UI elements to actions.
 
-The sample demonstrates an implementation using the [Model-View-ViewModel](https://en.wikipedia.org/wiki/Model–view–viewmodel) (MVVM) architecture.
+The project demonstrates an implementation using the [Model-View-ViewModel](https://en.wikipedia.org/wiki/Model–view–viewmodel) (MVVM) architecture.
 
 ### Generated APK
 
@@ -20,7 +20,7 @@ You can find the generated APKs [here](https://github.com/mhBahrami/giphy-code-c
 
 ### What this app does
 
-This a simple application to search on [Giphy](<https://giphy.com/>) gif image resources. For simplicity it only displays **up to 20** search results. Each result is displayed in an item that includes gif's title and gif's image. For gif's content, I selected the `fixed_height_downsampled` image to display.
+This a simple application to search on [Giphy](<https://giphy.com/>) gif image resources. For simplicity it only displays **up to 20** search results. Each result is displayed in an item that shows gif's title and gif's image. For gif's content, I selected the `fixed_height_downsampled` image to display.
 If there is an issue with network/server (like server does not respond, or network connectivity issue) or there is no data for the search query, user will see the following empty page. It's simple and can be improved later.
 
 |    Primary Page     | Search Results for “Cat” | Empty Page |
@@ -48,7 +48,7 @@ The ViewModel in the MVVM architecture plays a similar role to the Presenter in 
 
 In the MVVM architecture, Views react to changes in the ViewModel without being explicitly called. However, the MVVM architecture presents some challenges when working with some Android components.
 
-For example, to show a [`Snackbar`](https://developer.android.com/reference/android/support/design/widget/Snackbar.html), you must use a static call to pass a view object. I implemented it by generating an `extension` functions in `kotlin`.
+For example, to show a [`Snackbar`](https://developer.android.com/reference/android/support/design/widget/Snackbar.html), you must use a static call to pass a view object.
 
 ```java
 Snackbar.make(View coordinatorLayout, String text, int length).show();
@@ -60,7 +60,7 @@ When making use of a Presenter in an MVP architecture, you may call the activity
 mView.showSnackbar(text)
 ```
 
-I implemented it by creating an extension function on `View`:
+ I implemented it by creating an `extension` functions (in `kotlin`) on `View`:
 
 ```kotlin
 /**
@@ -99,9 +99,9 @@ fun View.setupSnackbar(
 
 ## Discussion
 
-This UX of the application can be improved by having a better error handling, like informing the user about the issue and helping him/her to resolve that. For instance in case of network issue (no Wi-Fi or network connectivity) we can inform user to check the device's internet connection.
+The UX of the application can be improved by having a better error handling, like informing the user about the issue and helping him/her to resolve that. For instance, in case of network issue (no Wi-Fi or network connectivity) we can inform user to check the device's internet connections.
 
-We can also add a new data source for device storage data source as `LocalDataSource`. It helps to save gif images and later on use them to save network data usages and also make gifs available offline for the users. Also it helps to load the same gif files much faster.
+We can also add a new data source for device storage data source as `LocalDataSource`. It helps to save gif images and later on use them to save network data usages and also make gifs available offline for the user. In addition, it helps to load **the same gif image** much faster without fetching it again from the server.
 
 Also we should add Unit tests to test UI search functionality in order to be confident about the app reliability.
 

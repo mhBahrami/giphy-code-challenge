@@ -20,7 +20,7 @@ You can find the generated APKs [here](https://github.com/mhBahrami/giphy-code-c
 
 ### What this app does
 
-This a simple application to search on [Giphy](<https://giphy.com/>) gif image resources. For simplicity it only displays **up to 20** search results. Each result is displayed in an item that shows gif's title and gif's image. For gif's content, I selected the `fixed_height_downsampled` image to display.
+This is a simple application to search on [Giphy](<https://giphy.com/>) gif image resources. For simplicity it only displays **up to 20** search results. Each result is displayed in an item that shows gif's title and gif's image. For gif's content, I selected the `fixed_height_downsampled` image to display.
 If there is an issue with network/server (like server does not respond, or network connectivity issue) or there is no data for the search query, user will see the following empty page. It's simple and can be improved later.
 
 |    Primary Page     | Search Results for “Cat” | Empty Page |

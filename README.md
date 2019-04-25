@@ -16,7 +16,7 @@ The sample demonstrates an implementation using the [Model-View-ViewModel](https
 
 ### Generated APK
 
-You can find the generated APKs [here]().
+You can find the generated APKs [here](https://github.com/mhBahrami/giphy-code-challenge/tree/master/apk).
 
 ### What this app does
 
@@ -103,8 +103,8 @@ This UX of the application can be improved by having a better error handling, li
 
 We can also add a new data source for device storage data source as `LocalDataSource`. It helps to save gif images and later on use them to save network data usages and also make gifs available offline for the users. Also it helps to load the same gif files much faster.
 
-Also we can add 
+Also we should add Unit tests to test UI search functionality in order to be confident about the app reliability.
 
 ## License
 
-[MIT License](/LICENSE).
+[MIT License](https://github.com/mhBahrami/giphy-code-challenge/blob/master/LICENSE.txt).
